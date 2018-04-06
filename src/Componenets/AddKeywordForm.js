@@ -28,6 +28,8 @@ export default ({ data, updateTextBox, question }) =>
                     dangerouslySetInnerHTML={{__html: `<a href="http://www.thesaurus.com/browse/${data.keyword}" target="_blank">Look up synonyms for ${data.keyword}</a>`}}>
                     </Typography> : ''
         }
+        <Typography gutterBottom variant="subheading" component="h2" align="left"
+                    style={{marginTop: 15, marginBottom: -15}}>Related terms:</Typography>
           <TextField
             id={`synonym1_${data.id}`}
             value={data.synonym1}

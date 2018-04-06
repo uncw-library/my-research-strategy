@@ -17,7 +17,7 @@ class Body extends Component {
                                     + '<a href="https://library.uncw.edu/get_started">Getting Started Researching</a>) '
                                     + 'Write a short question or statement that describes your research. Enter the question or statement below.'},
             question: '',
-            keywords: [{id: 0, keyword: '', synonym1: '', synonym2: ''}],
+            keywords: [{id: 0, keyword: '', synonym1: '', synonym2: ''},{id: 1, keyword: '', synonym1: '', synonym2: ''}],
             searchStatement: ''
         }
         this.updateActiveView = this.updateActiveView.bind(this)
@@ -45,13 +45,14 @@ class Body extends Component {
             activeImage: {name: 'Question', location: './images/keywords-small.png'},
             activeDireactions: {title: 'Identify Key Concepts',
                                 text: 'Examine your question or statement and identify the most important concepts. These are your keywords. '
-                                    + 'Enter 1 to 3 keywords below. Be sure to enter only one word per box.'}
+                                    + 'Enter keywords below. Be sure to enter only one word per box.'
+                                    + '<br/><br/>For example, in the research question ‘How does violence in the media affect young children?’ the keywords would be: violence, media, children. '}
           })
           break;
         case 'findTerms':
           this.setState({
             activeImage: {name: 'Question', location: './images/synonyms-small.png'},
-            activeDireactions: {title: 'Identify Key Concepts',
+            activeDireactions: {title: 'Find Related Terms',
                                 text: 'Enter one or two related terms or synonyms (words with similar meanings) in the boxes below for each of your key concepts. '
                                     + 'For example: college, university, and "higher education" are all realted terms. '
                                     + 'It\'s easy to find synonyms using an online thesaurus. Click \'Look up synonyms\' under any of your keywords below.'
