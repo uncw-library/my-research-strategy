@@ -10,12 +10,15 @@ class Body extends Component {
 
         this.state = {
             activeView: 'createQuestion',
-            activeImage: {name: 'Question', location: './images/question-small.png'},
-            activeDireactions: {title: 'Create Research Question',
+            //activeImage: {name: 'Question', location: './images/question-small.png'},
+            activeDireactions: {title: '1. Create Research Question',
                                 text: 'Start with a clear understanding of your research question or statement. '
                                     + 'You may have to find background information about your topic (see "Step 2" of '
-                                    + '<a href="https://library.uncw.edu/get_started">Getting Started Researching</a>) '
-                                    + 'Write a short question or statement that describes your research. Enter the question or statement below.'},
+                                    + '<a href="https://library.uncw.edu/get_started" target="_blank">Getting Started Researching</a>)<br/><br/>'
+                                    + 'Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/>'
+                                    + 'For example, if you were interested in child development and violence, '
+                                    + 'your research question might be something like question '
+                                    + '<em>How does violence in video games affect young adults?</em>.'},
             question: '',
             keywords: [{id: 0, keyword: '', synonym1: '', synonym2: ''},{id: 1, keyword: '', synonym1: '', synonym2: ''}],
             searchStatement: ''
@@ -32,31 +35,37 @@ class Body extends Component {
       switch (view) {
         case 'createQuestion':
           this.setState({
-            activeImage: {name: 'Question', location: './images/question-small.png'},
-            activeDireactions: {title: 'Create Research Question',
+            //activeImage: {name: 'Question', location: './images/question-small.png'},
+            activeDireactions: {title: '1. Create Research Question',
                                 text: 'Start with a clear understanding of your research question or statement. '
                                     + 'You may have to find background information about your topic (see "Step 2" of '
-                                    + '<a href="https://library.uncw.edu/get_started">Getting Started Researching</a>) '
-                                    + 'Write a short question or statement that describes your research. Enter the question or statement below.'}
+                                    + '<a href="https://library.uncw.edu/get_started" target="_blank">Getting Started Researching</a>)<br/><br/>'
+                                    + 'Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/>'
+                                    + 'For example, if you were interested in child development and violence, '
+                                    + 'your research question might be something like question '
+                                    + '<em>How does violence in video games affect young adults?</em>.'},
           })
           break;
         case 'identifyConcepts':
           this.setState({
-            activeImage: {name: 'Question', location: './images/keywords-small.png'},
-            activeDireactions: {title: 'Identify Key Concepts',
-                                text: 'Examine your question or statement and identify the most important concepts. These are your keywords. '
-                                    + 'Enter keywords below. Be sure to enter only one word per box.'
-                                    + '<br/><br/>For example, in the research question ‘How does violence in the media affect young children?’ the keywords would be: violence, media, children. '}
+            //activeImage: {name: 'Question', location: './images/keywords-small.png'},
+            activeDireactions: {title: '2. Identify Key Concepts',
+                                text: 'Examine your question or statement and identify the most important concepts. These are your keywords. Enter keywords below.<br/><br/>'
+                                    + 'If your keyword is a phrase, put “quotation marks” around it ('
+                                    + '<a href="https://www.youtube.com/watch?v=MwFElnYLQs4&feature=youtu.be" target="_blank">click here to learn why</a>).<br/><br/>'
+                                    + 'For example, in the research question <em>How does violence in video games affect young adults?</em>,  the keywords would be: '
+                                    + '<ul><li>violence</li><li>"video games"</li><li>"young adults"</li></ul>'}
           })
           break;
         case 'findTerms':
           this.setState({
-            activeImage: {name: 'Question', location: './images/synonyms-small.png'},
-            activeDireactions: {title: 'Find Related Terms',
-                                text: 'Enter one or two related terms or synonyms (words with similar meanings) in the boxes below for each of your key concepts. '
-                                    + 'For example: college, university, and "higher education" are all realted terms. '
-                                    + 'It\'s easy to find synonyms using an online thesaurus. Click \'Look up synonyms\' under any of your keywords below.'
-                                    + '<br/><br/><a href="https://library.uncw.edu/resources/do_i_always_need_synonyms_keywords">Wait! Do I always need synonyms? Click here</a>'}
+            //activeImage: {name: 'Question', location: './images/synonyms-small.png'},
+            activeDireactions: {title: '3. Find Related Terms',
+                                text: 'Enter one or two related terms or synonyms (words with similar meanings) in the boxes below for each of your key concepts.<br/><br/>'
+                                    + 'For example, if your keyword was <em>"young adults"</em>, related terms might be:'
+                                    + '<ul><li>adolescents</li><li>teenagers</li><li>minors</li></ul>'
+                                    + 'It\'s easy to find synonyms using an online thesaurus. Click \'Look up synonyms\' under any of your keywords below.<br/><br/>'
+                                    + '<a href="https://library.uncw.edu/resources/do_i_always_need_synonyms_keywords" target="_blank">Wait! Do I always need synonyms? Click here</a>'}
           })
           break;
         default:
@@ -105,12 +114,15 @@ class Body extends Component {
     startOver() {
       this.setState({
           activeView: 'createQuestion',
-          activeImage: {name: 'Question', location: './images/question-small.png'},
-          activeDireactions: {title: 'Create Research Question',
+          //activeImage: {name: 'Question', location: './images/question-small.png'},
+          activeDireactions: {title: '1. Create Research Question',
                               text: 'Start with a clear understanding of your research question or statement. '
                                   + 'You may have to find background information about your topic (see "Step 2" of '
-                                  + '<a href="https://library.uncw.edu/get_started">Getting Started Researching</a>) '
-                                  + 'Write a short question or statement that describes your research. Enter the question or statement below.'},
+                                  + '<a href="https://library.uncw.edu/get_started" target="_blank">Getting Started Researching</a>)<br/><br/>'
+                                  + 'Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/>'
+                                  + 'For example, if you were interested in child development and violence, '
+                                  + 'your research question might be something like question '
+                                  + '<em>How does violence in video games affect young adults?</em>.'},
           question: '',
           keywords: [{id: 0, keyword: '', synonym1: '', synonym2: ''}],
           searchStatement: ''
@@ -141,7 +153,7 @@ class Body extends Component {
                       </Grid>
                       <Grid item xl={2} lg={2} md={2} sm={12} xs={12}>
                       <CopyToClipboard text={this.state.searchStatement}>
-                        <Button color="primary" variant="raised" style={{margin: 15, textTransform: 'capitalize'}}>Copy Search Statement to clipboard</Button>
+                        <Button color="primary" variant="raised" style={{margin: 15, textTransform: 'capitalize'}}>4. Copy Search Statement to clipboard</Button>
                       </CopyToClipboard>
                       </Grid>
                     </Grid>

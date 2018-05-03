@@ -13,7 +13,7 @@ export default ({ data, updateTextBox, question }) =>
     <Card style={styles.card}>
         <CardContent>
         <Typography gutterBottom variant="subheading" component="h2" align="left"
-                    style={{marginTop: 15, marginBottom: -15}}>Keyword:</Typography>
+                    style={{marginTop: 15, marginBottom: -15}}>2. Keyword:</Typography>
           <TextField
             id={`keyword_${data.id}`}
             value={data.keyword}
@@ -29,7 +29,7 @@ export default ({ data, updateTextBox, question }) =>
                     </Typography> : ''
         }
         <Typography gutterBottom variant="subheading" component="h2" align="left"
-                    style={{marginTop: 15, marginBottom: -15}}>Related terms:</Typography>
+                    style={{marginTop: 15, marginBottom: -15}}>3. Related terms:</Typography>
           <TextField
             id={`synonym1_${data.id}`}
             value={data.synonym1}
