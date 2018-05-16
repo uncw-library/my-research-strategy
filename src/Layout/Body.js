@@ -14,11 +14,11 @@ class Body extends Component {
             activeDireactions: {title: '1. Create Research Question',
                                 text: 'Start with a clear understanding of your research question or statement. '
                                     + 'You may have to find background information about your topic (see "Step 2" of '
-                                    + '<a href="https://library.uncw.edu/get_started" target="_blank">Getting Started Researching</a>)<br/><br/>'
+                                    + '<a href="https://library.uncw.edu/get_started" target="_blank">Get Started Researching</a>).<br/><br/>'
                                     + 'Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/>'
                                     + 'For example, if you were interested in child development and violence, '
                                     + 'your research question might be something like question '
-                                    + '<em>How does violence in video games affect young adults?</em>.'},
+                                    + '<em>How does violence in video games affect young adults?</em>'},
             question: '',
             keywords: [{id: 0, keyword: '', synonym1: '', synonym2: ''},{id: 1, keyword: '', synonym1: '', synonym2: ''}],
             searchStatement: ''
@@ -39,11 +39,11 @@ class Body extends Component {
             activeDireactions: {title: '1. Create Research Question',
                                 text: 'Start with a clear understanding of your research question or statement. '
                                     + 'You may have to find background information about your topic (see "Step 2" of '
-                                    + '<a href="https://library.uncw.edu/get_started" target="_blank">Getting Started Researching</a>)<br/><br/>'
+                                    + '<a href="https://library.uncw.edu/get_started" target="_blank">Get Started Researching</a>).<br/><br/>'
                                     + 'Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/>'
                                     + 'For example, if you were interested in child development and violence, '
                                     + 'your research question might be something like question '
-                                    + '<em>How does violence in video games affect young adults?</em>.'},
+                                    + '<em>How does violence in video games affect young adults?</em>'},
           })
           break;
         case 'identifyConcepts':
@@ -66,6 +66,17 @@ class Body extends Component {
                                     + '<ul><li>adolescents</li><li>teenagers</li><li>minors</li></ul>'
                                     + 'It\'s easy to find synonyms using an online thesaurus. Click \'Look up synonyms\' under any of your keywords below.<br/><br/>'
                                     + '<a href="https://library.uncw.edu/resources/do_i_always_need_synonyms_keywords" target="_blank">Wait! Do I always need synonyms? Click here</a>'}
+          })
+          break;
+        case 'search':
+          this.setState({
+            //activeImage: {name: 'Question', location: './images/synonyms-small.png'},
+            activeDireactions: {title: '4. Search',
+                                text: 'You have created an advanced search strategy! Copy the search statement from the bottom of this page.<br/><br/>'
+                                    + 'You can now paste this search statement into any of the library’s databases, including the '
+                                    + '<a href="https://library.uncw.edu/" target="_blank">search box on the library homepage</a>.<br/><br/>'
+                                    + 'Not finding what you are looking for? '
+                                    + '<a href="https://library.uncw.edu/ask" target="_blank">Ask a librarian</a>!'}
           })
           break;
         default:
@@ -118,11 +129,11 @@ class Body extends Component {
           activeDireactions: {title: '1. Create Research Question',
                               text: 'Start with a clear understanding of your research question or statement. '
                                   + 'You may have to find background information about your topic (see "Step 2" of '
-                                  + '<a href="https://library.uncw.edu/get_started" target="_blank">Getting Started Researching</a>)<br/><br/>'
+                                  + '<a href="https://library.uncw.edu/get_started" target="_blank">Get Started Researching</a>).<br/><br/>'
                                   + 'Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/>'
                                   + 'For example, if you were interested in child development and violence, '
                                   + 'your research question might be something like question '
-                                  + '<em>How does violence in video games affect young adults?</em>.'},
+                                  + '<em>How does violence in video games affect young adults?</em>'},
           question: '',
           keywords: [{id: 0, keyword: '', synonym1: '', synonym2: ''}],
           searchStatement: ''
@@ -134,7 +145,7 @@ class Body extends Component {
             <Grid container>
                 <Grid item xl={2} lg={2}></Grid>
                 <Grid item xl={8} lg={8} md={12} sm={12} xs={12}>
-                    <Instructions activeImage={this.state.activeImage} activeDireactions={this.state.activeDireactions} />
+                    <Instructions activeImage={this.state.activeImage} activeDireactions={this.state.activeDireactions} activeView={this.state.activeView} />
                     <ButtonControls activeView={this.state.activeView} question={this.state.question} searchStatement={this.state.searchStatement}
                                     updateActiveView={this.updateActiveView} startOver={this.startOver}/>
                     <ResearchQuestion question={this.state.question} updateTextBox={this.updateTextBox}/>
