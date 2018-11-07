@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, TextField, Typography } from 'material-ui'
+import { Grid, TextField, Typography } from '@material-ui/core'
 
 export default ({ question, updateTextBox }) =>
 <Grid container>

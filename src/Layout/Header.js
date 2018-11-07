@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Button, Toolbar, Typography } from 'material-ui'
+import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 
 export default props =>
 <div style={{flexGrow: 1}}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon, Grid } from 'material-ui'
+import { Button, Icon, Grid } from '@material-ui/core'
 
 const styles = {
     button: {
