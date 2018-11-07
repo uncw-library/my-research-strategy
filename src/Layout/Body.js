@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { AddKeywordForm, AddAdditionalKeywordButton, ButtonControls,
          Instructions, ResearchQuestion, SearchStatement } from '../Componenets'
-import { Button, Grid } from 'material-ui'
+import { Button, Grid } from '@material-ui/core'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class Body extends Component {

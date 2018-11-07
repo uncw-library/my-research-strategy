@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from 'material-ui'
+import { Grid, Typography } from '@material-ui/core'
 
 export default ({ activeView, activeDireactions}) =>
 <Grid container style={{marginTop:30, marginBottom:30}}>

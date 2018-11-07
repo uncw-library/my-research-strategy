@@ -1,6 +1,5 @@
 import React from 'react'
-import { Card, TextField, Typography, Grid } from 'material-ui'
-import { CardContent } from 'material-ui/Card';
+import { Card, CardContent, TextField, Typography, Grid } from '@material-ui/core'
 
 const styles = {
     card: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Grid, Icon } from 'material-ui'
+import { Button, Grid, Icon } from '@material-ui/core'
 
 export default ({ addAdditionalKeywordForm }) =>
 <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
