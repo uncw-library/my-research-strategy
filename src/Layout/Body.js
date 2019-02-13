@@ -74,9 +74,14 @@ class Body extends Component {
             activeDireactions: {title: '4. Search',
                                 text: 'You have created an advanced search strategy! Copy the search statement from the bottom of this page.<br/><br/>'
                                     + 'You can now paste this search statement into any of the library’s databases, including the '
-                                    + '<a href="https://library.uncw.edu/" target="_blank">search box on the library homepage</a>.<br/><br/>'
-                                    + 'Not finding what you are looking for? '
-                                    + '<a href="https://library.uncw.edu/ask" target="_blank">Ask a librarian</a>!'}
+                                    + '<a href="https://library.uncw.edu/" target="_blank">search box on the library homepage</a>. ' 
+                                    + 'To find subject specific databases, go to our <a href="https://library.uncw.edu/guides/" target="_blank">Subject and Course Guides</a>, ' 
+                                    + 'choose your subject, and then explore the recommended databases.<br/><br/>'
+                                    + 'After searching in one or more of our library databases, consider the results. Are there more or fewer articles '
+                                    + 'than you were hoping to find? Are they relevant to your topic? Reflect on your expectations as well, and ask yourself whether you are '
+                                    + 'looking for the "<a href="https://library.uncw.edu/resources/one_perfect_source" target="_blank">one perfect source</a>."<br/><br/> '
+                                    + 'If you are not finding what you are looking for, return to this page, tweak your search, and try again. Repeat until you are finding what '
+                                    + 'you are looking for, or you can <a href="https://library.uncw.edu/ask" target="_blank">ask a librarian</a> for help anytime.'}
           })
           break;
         default:
