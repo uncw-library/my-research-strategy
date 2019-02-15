@@ -5,9 +5,9 @@ export default ({ activeView, activeDireactions}) =>
 <Grid container style={{marginTop:30, marginBottom:30}}>
     <Grid item xl={5} lg={6} md={6} sm={12} xs={12}>
        {(activeView === 'createQuestion') ?
-       <iframe scrolling="no" frameBorder="0" type="text/html" style={{overflow:'hidden'}} title="Research" 
-       width="95%" height="300" src="https://www.youtube.com/embed/VXzYhISc73g?mode=opaque&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;modestbranding=1&wmode=transparent" frameborder="0" 
-       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+       <iframe class="tscplayer_inline smart-player-embed-container-iframe embeddedObject" name="tsc_player" scrolling="no" frameborder="0" type="text/html"
+        style={{overflow:'hidden'}} src="https://www.screencast.com/users/Randall_Library/folders/Tammy uploads/media/1934c64e-166b-4411-800a-303bc7bde9af/embed" 
+        height="300" width="95%" title="Research">
        </iframe> : (activeView === 'search') ? 
        <iframe className="tscplayer_inline embeddedObject" name="tsc_player" scrolling="no" frameBorder="0" type="text/html"
                style={{overflow:'hidden'}} src="https://www.screencast.com/users/Randall_Library/folders/Tammy uploads/media/70eca49f-40d1-4752-94f9-0d9165a4e93c/embed"
