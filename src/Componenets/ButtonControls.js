@@ -33,6 +33,6 @@ export default ({ activeView, question, searchStatement, updateActiveView, start
           onClick={(e) => updateActiveView('search')}>4. Search</Button>
 
        <Button color="primary" variant="raised" style={styles.button} onClick={(e) => startOver()}>Start Over</Button>
-       <Button color="secondary" variant="raised" style={styles.button} href="https://library.uncw.edu/ask" target="_blank">Help</Button>
+       <Button color="secondary" id="help" variant="raised" style={styles.button} href="https://library.uncw.edu/ask" target="_blank">Help</Button>
     </Grid>
 </Grid>

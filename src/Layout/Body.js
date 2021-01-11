@@ -169,7 +169,7 @@ class Body extends Component {
                       </Grid>
                       <Grid item xl={2} lg={2} md={2} sm={12} xs={12}>
                       <CopyToClipboard text={this.state.searchStatement}>
-                        <Button color="primary" variant="raised" style={{margin: 15, textTransform: 'capitalize'}}>4. Copy Search Statement to clipboard</Button>
+                        <Button aria-label="Copy to clip board." color="primary" variant="raised" style={{margin: 15, textTransform: 'capitalize'}}>4. Copy Search Statement to clipboard</Button>
                       </CopyToClipboard>
                       </Grid>
                     </Grid>

@@ -12,7 +12,7 @@ export default ({ data, updateTextBox, question }) =>
     <Card style={styles.card}>
         <CardContent>
         <Typography gutterBottom variant="subheading" component="h2" align="left"
-                    style={{marginTop: 15, marginBottom: -15}}>2. Keyword:</Typography>
+                    style={{marginTop: 15, marginBottom: -15}}><label for={`keyword_${data.id}`}>2. Keyword:</label></Typography>
           <TextField
             id={`keyword_${data.id}`}
             value={data.keyword}
@@ -28,7 +28,7 @@ export default ({ data, updateTextBox, question }) =>
                     </Typography> : ''
         }
         <Typography gutterBottom variant="subheading" component="h2" align="left"
-                    style={{marginTop: 15, marginBottom: -15}}>3. Related terms:</Typography>
+                    style={{marginTop: 15, marginBottom: -15}}><label for={`synonym1_${data.id}`} >3. Related terms:</label></Typography>
           <TextField
             id={`synonym1_${data.id}`}
             value={data.synonym1}
@@ -37,6 +37,8 @@ export default ({ data, updateTextBox, question }) =>
             disabled={data.keyword ? false: true}
             fullWidth
           />
+          <Typography gutterBottom variant="subheading" component="h2" align="left"
+                    style={{marginTop: 15, marginBottom: -15}}><label for={`synonym2_${data.id}`} >Related terms:</label></Typography>
           <TextField
             id={`synonym2_${data.id}`}
             value={data.synonym2}
