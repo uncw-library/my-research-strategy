@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  webapp:
+    container_name: webapp
+    platform: linux/x86_64/v8
+    image: libapps-admin.uncw.edu:8000/randall-dev/my-research-strategy/dev
+    build: .
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    ports:
+      - "3000:3000"
+    command: npm run start
+    restart: always
