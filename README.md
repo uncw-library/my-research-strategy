@@ -42,3 +42,4 @@ to see it:
         we put that /build folder into a very fast server to serve it at port 80
 
 Whenever we're revising the app, we stay in stage 1.  Then when we finish our revisions, we switch to stage 2 and push the app to production.
+
