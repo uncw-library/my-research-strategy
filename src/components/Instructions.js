@@ -7,7 +7,7 @@ class Instructions extends React.Component {
          <Grid container style={{ marginTop: 30, marginBottom: 30 }}>
             <Grid item xl={5} lg={6} md={6} sm={12} xs={12}>
                {(this.props.activeView === 'createQuestion') ?
-                  <iframe class="tscplayer_inline smart-player-embed-container-iframe embeddedObject" name="tsc_player" scrolling="no" frameborder="0" type="text/html"
+                  <iframe className="tscplayer_inline smart-player-embed-container-iframe embeddedObject" name="tsc_player" scrolling="no" frameBorder="0" type="text/html"
                      style={{ overflow: 'hidden' }} src="https://www.screencast.com/users/Randall_Library/folders/Tammy uploads/media/1934c64e-166b-4411-800a-303bc7bde9af/embed"
                      height="300" width="95%" title="Research">
                   </iframe> : (this.props.activeView === 'search') ?
@@ -22,10 +22,10 @@ class Instructions extends React.Component {
                }
             </Grid>
             <Grid item xl={7} lg={6} md={6} sm={12} xs={12}>
-               <Typography variant='title' align='left' style={{ marginBottom: 10 }}>
-                  {this.props.activeDireactions.title}
+               <Typography variant='h6' align='left' style={{ marginBottom: 10 }}>
+                  {this.props.activeDirections.title}
                </Typography>
-               <Typography component='p' align='left' dangerouslySetInnerHTML={{ __html: this.props.activeDireactions.text }}>
+               <Typography variant='body1' align='left' dangerouslySetInnerHTML={{ __html: this.props.activeDirections.text }}>
                </Typography>
             </Grid>
          </Grid>

@@ -16,7 +16,7 @@ function Header() {
     <div style={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <Typography variant="title" style={{ flex: 1 }} gutterBottom align="left">
+          <Typography variant="h5" style={{ flex: 1 }} gutterBottom align="left">
             Randall Library My Research Strategy
           </Typography>
           <Button href="https://library.uncw.edu" style={{ color: '#006666' }}>
