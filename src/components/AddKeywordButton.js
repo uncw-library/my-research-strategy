@@ -10,4 +10,4 @@ function AddKeywordButton(props) {
   )
 }
 
-export default AddKeywordButton;
+export default AddKeywordButton

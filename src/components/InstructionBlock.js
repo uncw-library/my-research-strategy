@@ -1,6 +1,6 @@
 import { Grid, Typography } from '@material-ui/core'
 
-function Instructions(props) {
+function InstructionBlock(props) {
    return (
       <Grid container style={{ marginTop: 30, marginBottom: 30 }}>
          <Grid item xl={5} lg={6} md={6} sm={12} xs={12}>
@@ -8,9 +8,9 @@ function Instructions(props) {
          </Grid>
          <Grid item xl={7} lg={6} md={6} sm={12} xs={12}>
             <Typography variant='h6' align='left' style={{ marginBottom: 10 }}>
-               {props.activeDirections.title}
+               {props.instruction.title}
             </Typography>
-            <Typography variant='body1' align='left' dangerouslySetInnerHTML={{ __html: props.activeDirections.text }}>
+            <Typography variant='body1' align='left' dangerouslySetInnerHTML={{ __html: props.instruction.text }}>
             </Typography>
          </Grid>
       </Grid>
@@ -39,4 +39,4 @@ function VideoBox(activeView) {
    )
 }
 
-export default Instructions
+export default InstructionBlock

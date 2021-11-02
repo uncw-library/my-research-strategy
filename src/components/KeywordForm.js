@@ -12,7 +12,7 @@ function KeywordForm(props) {
           <TextField
             id={`keyword_${props.data.id}`}
             value={props.data.keyword}
-            onChange={(e) => props.updateTextBox(e, 'keyword', props.data.id)}
+            onChange={(e) => props.updateTextBox('keyword', props.data.id, e.target.value)}
             margin="normal"
             disabled={props.question ? false : true}
             fullWidth
@@ -30,7 +30,7 @@ function KeywordForm(props) {
           <TextField
             id={`synonym1_${props.data.id}`}
             value={props.data.synonym1}
-            onChange={(e) => props.updateTextBox(e, 'synonym1', props.data.id)}
+            onChange={(e) => props.updateTextBox('synonym1', props.data.id, e.target.value)}
             margin="normal"
             disabled={props.data.keyword ? false : true}
             fullWidth
@@ -42,7 +42,7 @@ function KeywordForm(props) {
           <TextField
             id={`synonym2_${props.data.id}`}
             value={props.data.synonym2}
-            onChange={(e) => props.updateTextBox(e, 'synonym2', props.data.id)}
+            onChange={(e) => props.updateTextBox('synonym2', props.data.id, e.target.value)}
             margin="normal"
             disabled={props.data.keyword ? false : true}
             fullWidth

@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Grid } from '@material-ui/core'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import AddKeywordButton from './AddKeywordButton'
 import KeywordForm from './KeywordForm'
-import ButtonControls from './ButtonControls'
-import Instructions from './Instructions'
+import ButtonRow from './ButtonRow'
+import InstructionBlock from './InstructionBlock'
 import ResearchQuestion from './ResearchQuestion'
 import SearchStatement from './SearchStatement'
 
-const instructions = {
+const instructionChoices = {
   createQuestion: {
     title: '1. Create Research Question',
     text: `Start with a clear understanding of your research question or statement. You may have to find background information about your topic (see "Step 2" of <a href="https://library.uncw.edu/get_started" target="_blank">Get Started Researching</a>).<br/><br/> Write a short question or statement that describes your research. Enter the question or statement below.<br/><br/> For example, if you were interested in child development and violence, your research question might be something like question <em>How does violence in video games affect young adults?</em>`
@@ -27,53 +27,38 @@ const instructions = {
   }
 };
 
-class Body extends React.Component {
+function Body() {
+  // const [const name, updateFunc name] = useState('default value')
+  const [activeView, setActiveView] = useState('createQuestion')
+  const [instruction, setInstruction] = useState(instructionChoices.createQuestion)
+  const [question, setQuestion] = useState('')
+  const [query, setQuery] = useState('')
+  const [keywords, setKeywords] = useState([
+    { id: 0, keyword: '', synonym1: '', synonym2: '' },
+    { id: 1, keyword: '', synonym1: '', synonym2: '' }
+  ])
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeView: 'createQuestion',
-      activeDirections: instructions.createQuestion,
-      question: '',
-      keywords: [
-        { id: 0, keyword: '', synonym1: '', synonym2: '' }, 
-        { id: 1, keyword: '', synonym1: '', synonym2: '' }
-      ],
-      query: ''
-    }
-    this.updateActiveView = this.updateActiveView.bind(this)
-    this.updateTextBox = this.updateTextBox.bind(this)
-    this.updateQuery = this.updateQuery.bind(this)
-    this.addKeywordForm = this.addKeywordForm.bind(this)
-    this.startOver = this.startOver.bind(this)
+  const updateActiveView = (view) => {
+    setActiveView(view)
+    setInstruction(instructionChoices[view])
   }
 
-  updateActiveView(view) {
-    this.setState({ activeView: view })
-    this.setState({ activeDirections: instructions[view] })
-  }
-
-  updateTextBox(event, textBox, id) {
-    let keywordsCopy = JSON.parse(JSON.stringify(this.state.keywords))
-    if (textBox === 'keyword' || textBox === 'synonym1' || textBox === 'synonym2') {
-      if (textBox === 'keyword') {
-        keywordsCopy[id].keyword = event.target.value
-        if (keywordsCopy[id].keyword === '') {
-          keywordsCopy[id].synonym1 = ''
-          keywordsCopy[id].synonym2 = ''
-        }
+  const updateTextBox = (textBox, id, value) => {
+    let keywordsCopy = JSON.parse(JSON.stringify(keywords))
+    if (textBox === 'keyword') {
+      keywordsCopy[id].keyword = value
+      if (keywordsCopy[id].keyword === '') {
+        keywordsCopy[id].synonym1 = ''
+        keywordsCopy[id].synonym2 = ''
       }
-      if (textBox === 'synonym1') keywordsCopy[id].synonym1 = event.target.value
-      if (textBox === 'synonym2') keywordsCopy[id].synonym2 = event.target.value
-      this.setState({ keywords: keywordsCopy })
-      this.updateQuery(keywordsCopy)
-    } else {
-      this.setState({ [textBox]: event.target.value })
     }
+    if (textBox === 'synonym1') keywordsCopy[id].synonym1 = value
+    if (textBox === 'synonym2') keywordsCopy[id].synonym2 = value
+    updateQuery(keywordsCopy)
+    setKeywords(keywordsCopy)
   }
 
-  updateQuery(keywordsCopy) {
+  const updateQuery = (keywordsCopy) => {
     var myQuery = ''
     keywordsCopy.forEach((data, index) => {
       var syn1 = (data.synonym1) ? ` OR ${data.synonym1}` : ''
@@ -83,61 +68,54 @@ class Body extends React.Component {
       } else if (data.keyword !== '') {
         myQuery += `(${data.keyword}` + syn1 + syn2 + ')'
       }
-    }
-    )
-    this.setState({ query: myQuery })
-  }
-
-  addKeywordForm() {
-    var arrayID = this.state.keywords.length
-    this.setState({ keywords: [...this.state.keywords, { id: arrayID, keyword: '', synonym1: '', synonym2: '' }] })
-  }
-
-  startOver() {
-    this.setState({
-      activeView: 'createQuestion',
-      activeDirections: instructions.createQuestion,
-      question: '',
-      keywords: [
-        { id: 0, keyword: '', synonym1: '', synonym2: '' }, 
-        { id: 1, keyword: '', synonym1: '', synonym2: '' }
-      ],
-      query: ''
     })
+    setQuery(myQuery)
   }
 
-  render() {
-    return (
-      <Grid container>
-        <Grid item xl={2} lg={2}></Grid>
-        <Grid item xl={8} lg={8} md={12} sm={12} xs={12}>
-          <Instructions activeDirections={this.state.activeDirections} activeView={this.state.activeView} />
-          <ButtonControls activeView={this.state.activeView} question={this.state.question} query={this.state.query}
-            updateActiveView={this.updateActiveView} startOver={this.startOver} />
-          <ResearchQuestion question={this.state.question} updateTextBox={this.updateTextBox} />
-          <Grid container>
-            {
-              this.state.keywords.map(data => (
-                <KeywordForm key={data.id} data={data} updateTextBox={this.updateTextBox} question={this.state.question} />
-              ))
-            }
-            <AddKeywordButton addKeywordForm={this.addKeywordForm} />
+  const addKeywordForm = () => {
+    var arrayID = keywords.length
+    setKeywords([...keywords, { id: arrayID, keyword: '', synonym1: '', synonym2: '' }])
+  }
+
+  const startOver = () => {
+    setActiveView('createQuestion')
+    setInstruction(instructionChoices.createQuestion)
+    setQuestion('')
+    setKeywords([
+      { id: 0, keyword: '', synonym1: '', synonym2: '' },
+      { id: 1, keyword: '', synonym1: '', synonym2: '' }
+    ])
+    setQuery('')
+  }
+
+  return (
+    <Grid container>
+      <Grid item xl={2} lg={2}></Grid>
+      <Grid item xl={8} lg={8} md={12} sm={12} xs={12}>
+        <InstructionBlock instruction={instruction} activeView={activeView} />
+        <ButtonRow activeView={activeView} question={question} query={query}
+          updateActiveView={updateActiveView} startOver={startOver} />
+        <ResearchQuestion question={question} setQuestion={setQuestion} />
+        <Grid container>
+          {keywords.map((data, index) => (
+              <KeywordForm key={index} data={data} question={question} updateTextBox={updateTextBox} />
+          ))}
+          <AddKeywordButton addKeywordForm={addKeywordForm} />
+        </Grid>
+        <Grid container>
+          <Grid item xl={10} lg={10} md={10} sm={12} xs={12}>
+            <SearchStatement query={query} />
           </Grid>
-          <Grid container>
-            <Grid item xl={10} lg={10} md={10} sm={12} xs={12}>
-              <SearchStatement query={this.state.query} />
-            </Grid>
-            <Grid item xl={2} lg={2} md={2} sm={12} xs={12}>
-              <CopyToClipboard text={this.state.query}>
-                <Button aria-label="Copy to clip board." color="primary" variant="contained" style={{ margin: 15, textTransform: 'capitalize' }}>4. Copy Search Statement to clipboard</Button>
-              </CopyToClipboard>
-            </Grid>
+          <Grid item xl={2} lg={2} md={2} sm={12} xs={12}>
+            <CopyToClipboard text={query}>
+              <Button aria-label="Copy to clip board." color="primary" variant="contained" style={{ margin: 15, textTransform: 'capitalize' }}>4. Copy Search Statement to clipboard</Button>
+            </CopyToClipboard>
           </Grid>
         </Grid>
-        <Grid item xl={2} lg={2}></Grid>
       </Grid>
-    )
-  }
+      <Grid item xl={2} lg={2}></Grid>
+    </Grid>
+  )
 }
 
-export default Body;
+export default Body

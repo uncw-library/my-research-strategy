@@ -10,8 +10,7 @@ function ResearchQuestion(props) {
                 <TextField
                     id="researchQuestion"
                     value={props.question}
-                    //Below updateResearchQuestion
-                    onChange={(e) => props.updateTextBox(e, 'question')}
+                    onChange={(e) => props.setQuestion(e.target.value)}
                     margin="normal"
                     fullWidth
                 />
