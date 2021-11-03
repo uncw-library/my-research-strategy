@@ -10,11 +10,21 @@ revise code in ./src or ./public
 
 see the site at localhost:3000
 
+To lint, `npm install --dev
+
+
 ### Production
 
 **Note that we have to specify the Dockerfile.prod**
 
-`docker build -f Dockerfile.prod -t libapps-admin.uncw.edu:8000/randall-dev/my-research-strategy --platform linux/x86_64/v8  .`
+`docker build -f Dockerfile.prod -t libapps-admin.uncw.edu:8000/randall-dev/my-research-strategy:20211103 --platform linux/x86_64/v8 --no-cache .`
+
+There's a lot in the above command:
+
+  - file Dockerfile.prod (versus the dev-focused Dockerfile)
+  - tag libapps.....
+  - platform (so apple M1 makes an x86 linux image)
+  - no-cache (use all the latest parts)
 
 to see it:
 
