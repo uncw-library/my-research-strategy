@@ -10,7 +10,7 @@ revise code in ./src or ./public
 
 see the site at localhost:3000
 
-To lint, `npm install --dev
+To lint, `npm install` then `npx eslint ./src`
 
 
 ### Production
