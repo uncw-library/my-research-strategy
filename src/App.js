@@ -1,17 +1,17 @@
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
-import './App.css';
+import './App.css'
 import Body from './components/Body'
 
-function App() {
+function App () {
   return (
     <div className="App">
       <Header />
       <Body />
     </div>
-  );
+  )
 }
 
-function Header() {
+function Header () {
   return (
     <div style={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">
@@ -28,5 +28,4 @@ function Header() {
   )
 }
 
-
-export default App;
+export default App

@@ -1,7 +1,12 @@
+import PropTypes from 'prop-types'
 import { Grid, TextField, Typography } from '@material-ui/core'
 
-function SearchStatement(props) {
-    return (
+SearchStatement.propTypes = {
+  query: PropTypes.string
+}
+
+function SearchStatement (props) {
+  return (
         <Grid container>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                 <Typography variant="subtitle1" align="left" style={{ marginTop: 15, marginBottom: -15 }}>
@@ -16,7 +21,7 @@ function SearchStatement(props) {
                 />
             </Grid>
         </Grid>
-    )
+  )
 }
 
 export default SearchStatement

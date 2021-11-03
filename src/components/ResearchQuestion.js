@@ -1,7 +1,13 @@
+import PropTypes from 'prop-types'
 import { Grid, TextField, Typography } from '@material-ui/core'
 
-function ResearchQuestion(props) {
-    return (
+ResearchQuestion.propTypes = {
+  question: PropTypes.string,
+  setQuestion: PropTypes.func
+}
+
+function ResearchQuestion (props) {
+  return (
         <Grid container>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                 <Typography variant="subtitle1" align="left" style={{ marginTop: 15, marginBottom: -15 }}>
@@ -16,7 +22,7 @@ function ResearchQuestion(props) {
                 />
             </Grid>
         </Grid>
-    )
+  )
 }
 
 export default ResearchQuestion
